@@ -6,7 +6,9 @@ const WaitList = require('../models/waitList');
 
 router.post('/', ash(async (req, res) => {
     const { name, email, phoneNumber } = req.body;
+    console.log('req body', req.body);
     const count = await Table.countDocuments();
+    console.log('count', count);
     if (count < 6) {
         let table = new Table({
             name: name,

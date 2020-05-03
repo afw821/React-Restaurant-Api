@@ -15,3 +15,8 @@ code {
 .bg-color {
   background-color: whitesmoke !important;
 }
+.box {
+  margin: 20px;
+  border: 1px solid #dddcdc;
+  padding: 15px;
+}
