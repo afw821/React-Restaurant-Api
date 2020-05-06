@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "./common/jumbotron";
 import { renderButtons } from "./../utils/renderBtns";
-import { getReservations } from "./../services/reservationService";
+import {
+  getReservations,
+  emptyReservations,
+} from "./../services/reservationService";
 import { getWaitlist, emptyWaitList } from "./../services/waitListService";
 import List from "./common/lists";
 
@@ -19,8 +22,28 @@ class Tables extends Component {
   }
 
   handleDeleteWaitList = async () => {
-    console.log('deleted');
-  }
+    //reservations
+    const originalReservations = this.state.reservations;
+    const reservations = originalReservations;
+    reservations.splice(0, reservations.length);
+    //waitlist
+    const originalWaitlist = this.state.waitList;
+    const waitList = originalWaitlist;
+    waitList.splice(0, waitList.length);
+
+    this.setState({ reservations, waitList });
+    try {
+      await emptyReservations();
+      await emptyWaitList();
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404) {
+        this.setState({
+          reservations: originalReservations,
+          waitList: originalWaitlist,
+        });
+      }
+    }
+  };
 
   render() {
     const text = "Current Reservations and Waiting List";

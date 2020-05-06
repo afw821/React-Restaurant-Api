@@ -13,6 +13,9 @@ export function makeReservation(name, email, phoneNumber) {
     email,
     phoneNumber,
   };
-  console.log("make reservation", obj);
   return http.post(apiUrl + "/tables", obj);
+}
+
+export function emptyReservations() {
+  return http.delete(apiUrl + "/tables");
 }
