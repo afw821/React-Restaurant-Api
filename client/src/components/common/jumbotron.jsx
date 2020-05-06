@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./button";
 
-const Jumbotron = ({ text, buttons, renderClearBtn }) => {
+const Jumbotron = ({ text, buttons, renderClearBtn, onDelete }) => {
+  console.log("jumbotron render clear button", renderClearBtn);
   return (
     <div className="jumbotron">
       <h1 className="text-center">
@@ -16,7 +17,9 @@ const Jumbotron = ({ text, buttons, renderClearBtn }) => {
         {renderClearBtn && (
           <>
             <br />
-            <Button btnClass="btn-danger mt-3" spanClass="" btnText="Clear" />
+            <button className="btn btn-danger mt-3" onClick={() => onDelete()}>
+              Clear
+            </button>
           </>
         )}
       </div>

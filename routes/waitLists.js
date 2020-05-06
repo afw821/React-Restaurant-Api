@@ -10,4 +10,9 @@ router.get('/', ash(async (req, res) => {
     res.json(waitList);
 }));
 
+router.delete('/', ash(async (req, res) => {
+    const result = await WaitList.deleteMany();
+    res.send(result);
+}));
+
 module.exports = router;

@@ -9,7 +9,7 @@ const Home = (props) => {
     <Jumbotron
       text={text}
       buttons={renderButtons("home")}
-      renderClearBtn={true}
+      renderClearBtn={false}
     />
   );
 };

@@ -38,4 +38,9 @@ router.get('/', ash(async (req, res) => {
     res.json(tables);
 }));
 
+router.delete('/', ash(async (req, res) => {
+    const result = await Table.deleteMany();
+    res.send(result);
+}));
+
 module.exports = router;
