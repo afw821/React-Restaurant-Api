@@ -4,6 +4,8 @@
   "description": "A restaurant API built with React",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,6 +17,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/afw821/React-Restaurant-Api/issues"
+  },
+  "engines": {
+    "node": "8.9.2"
   },
   "homepage": "https://github.com/afw821/React-Restaurant-Api#readme",
   "dependencies": {
