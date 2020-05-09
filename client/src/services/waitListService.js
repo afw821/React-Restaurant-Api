@@ -1,12 +1,10 @@
 import http from "./httpService";
-// import { apiUrl } from "../config.json";
-
-const apiUrl = "http://localhost:8800/api";
+import { apiUrl, deployedApiUrl } from "../config.json";
 
 export function getWaitlist() {
-  return http.get(apiUrl + "/waitLists");
+  return http.get(deployedApiUrl + "/waitLists");
 }
 
 export function emptyWaitList() {
-  return http.delete(apiUrl + "/waitLists");
+  return http.delete(deployedApiUrl + "/waitLists");
 }
