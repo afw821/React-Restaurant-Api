@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const config = require("config");
+require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,5 +24,5 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-const PORT = process.env.PORT || 8800;
+const PORT = process.env.PORT || config.get("port");
 app.listen(PORT, () => console.log(`App listening on PORT: ${PORT}`));
