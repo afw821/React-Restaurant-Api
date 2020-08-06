@@ -1,4 +1,4 @@
 {
-    "apiUrl": "http://localhost:8800/api",
-    "deployedApiUrl": "https://alexsrestaurant.herokuapp.com/api"
+  "apiUrl": "http://localhost:8800/api",
+  "deployedApiUrl": "http://alexsrestaurant.herokuapp.com/api"
 }
